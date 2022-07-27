@@ -1,33 +1,41 @@
-name: Auto PR updated PyScript
+name: Auto PR new PyScript
 
 on:
-  # schedule: [{cron: "0 4 * * *"}]
+  schedule: [{cron: "0 4 * * *"}]
   workflow_dispatch:
   push: {branches: ["main"]}
 
 jobs:
   push_to_branch_and_create_pr:
-    name: Create PR for JS
+    name: Create PR for PyScript
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
         name: Check out current commit
           
       - uses: suisei-cn/actions-download-file@v1
-        id: downloadfile
+        id: pyscript-js
         name: Download JS file
         with:
           url: (https://pyscript.net/alpha/pyscript.js)
           target: assets
           auto-match: true
           
+      - uses: suisei-cn/actions-download-file@v1
+        id: pyscript-css
+        name: Download CSS file
+        with:
+          url: (https://pyscript.net/alpha/pyscript.css)
+          target: assets
+          auto-match: true
+          
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4.0.4
         with:
-          commit-message: Update PyScript JS
-          title: Update PyScript JS
+          commit-message: Update PyScript Assets
+          title: Update PyScript Assets
           body: |
             This is an automated PR.
-            <sub>[workflow](https://github.com/marvinscham/pa-pyscript/blob/master/.github/workflows/pyscript-js-updater.yml).</sub>
-          branch: js-update
+            <sub>[workflow](https://github.com/marvinscham/pa-pyscript/blob/master/.github/workflows/pyscript-updater.yml).</sub>
+          branch: pyscript-update
           branch-suffix: "random"
