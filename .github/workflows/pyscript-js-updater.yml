@@ -17,7 +17,7 @@ jobs:
         id: downloadfile
         name: Download JS file
         with:
-          url: https://pyscript.net/alpha/pyscript.js
+          url: (https://pyscript.net/alpha/pyscript.js)
           target: assets
           auto-match: true
           
