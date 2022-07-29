@@ -15,15 +15,23 @@ jobs:
           
       - uses: suisei-cn/actions-download-file@v1
         id: pyscript-js
-        name: Download JS file
+        name: Download JS file for PyScript
         with:
           url: (https://pyscript.net/alpha/pyscript.js)
           target: assets
           auto-match: true
           
       - uses: suisei-cn/actions-download-file@v1
+        id: pyscript-py
+        name: Download Python file for PyScript
+        with:
+          url: (https://pyscript.net/alpha/pyscript.css)
+          target: assets
+          auto-match: true
+          
+      - uses: suisei-cn/actions-download-file@v1
         id: pyscript-css
-        name: Download CSS file
+        name: Download CSS file for PyScript
         with:
           url: (https://pyscript.net/alpha/pyscript.css)
           target: assets
