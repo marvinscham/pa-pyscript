@@ -1,0 +1,2 @@
+# Exclude external assets from language detection
+assets/* linguist-vendored
