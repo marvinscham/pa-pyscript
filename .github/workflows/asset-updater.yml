@@ -25,7 +25,7 @@ jobs:
         id: pyscript-py
         name: Download Python file for PyScript
         with:
-          url: (https://pyscript.net/alpha/pyscript.css)
+          url: (https://pyscript.net/alpha/pyscript.py)
           target: assets
           auto-match: true
           
