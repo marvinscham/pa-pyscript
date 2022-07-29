@@ -1,4 +1,4 @@
-name: Auto PR new PyScript
+name: Auto PR updated Assets
 
 on:
   schedule: [{cron: "0 4 * * *"}]
@@ -7,7 +7,7 @@ on:
 
 jobs:
   push_to_branch_and_create_pr:
-    name: Create PR for PyScript
+    name: Create PR for updated assets
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -29,13 +29,21 @@ jobs:
           target: assets
           auto-match: true
           
+      - uses: suisei-cn/actions-download-file@v1
+        id: D3-v7
+        name: Download minified D3 v7 file
+        with:
+          url: (https://d3js.org/d3.v7.min.js)
+          target: assets
+          auto-match: true
+          
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4.0.4
         with:
-          commit-message: Update PyScript Assets
-          title: Update PyScript Assets
+          commit-message: Update assets
+          title: Update assets
           body: |
             This is an automated PR.
-            <sub>[workflow](https://github.com/marvinscham/pa-pyscript/blob/master/.github/workflows/pyscript-updater.yml).</sub>
-          branch: pyscript-update
+            <sub>[workflow](https://github.com/marvinscham/pa-pyscript/blob/master/.github/workflows/asset-updater.yml).</sub>
+          branch: update-assets
           branch-suffix: "random"
