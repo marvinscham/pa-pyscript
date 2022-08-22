@@ -10,6 +10,7 @@ lang_info_prepped = []
 for lang in lang_info:
     item = dict(name=lang_info[lang]["learningLanguage"], count=lang_info[lang]["xp"])
 
+    # Filter irrelevant items
     if lang_info[lang]["xp"] > 500:
         lang_info_prepped.append(item)
 
