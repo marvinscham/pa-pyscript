@@ -8,4 +8,4 @@ async function main() {
 }
 main();
 
-// https://pyodide.org/en/stable/usage/quickstart.html
+// Source: https://pyodide.org/en/stable/usage/quickstart.html
