@@ -1,55 +1,34 @@
-name: Auto PR updated Assets
+name: Auto PR 3rd party assets
 
 on:
   schedule: [{cron: "0 4 * * *"}]
   workflow_dispatch:
-  push: {branches: ["main"]}
 
 jobs:
   push_to_branch_and_create_pr:
-    name: Create PR for updated assets
-    runs-on: ubuntu-18.04
+    name: Create PR for 3rd party assets
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         name: Check out current commit
           
-      - uses: suisei-cn/actions-download-file@v1
-        id: pyscript-js
-        name: Download JS file for PyScript
-        with:
-          url: (https://pyscript.net/alpha/pyscript.js)
-          target: assets
-          auto-match: true
+      - name: Download pyscript.js
+        run: curl https://pyscript.net/alpha/pyscript.js -o assets/pyscript.js
           
-      - uses: suisei-cn/actions-download-file@v1
-        id: pyscript-py
-        name: Download Python file for PyScript
-        with:
-          url: (https://pyscript.net/alpha/pyscript.py)
-          target: assets
-          auto-match: true
+      - name: Download pyscript.py
+        run: curl https://pyscript.net/alpha/pyscript.py -o assets/pyscript.py
           
-      - uses: suisei-cn/actions-download-file@v1
-        id: pyscript-css
-        name: Download CSS file for PyScript
-        with:
-          url: (https://pyscript.net/alpha/pyscript.css)
-          target: assets
-          auto-match: true
-          
-      - uses: suisei-cn/actions-download-file@v1
-        id: D3-v7
-        name: Download minified D3 v7 file
-        with:
-          url: (https://d3js.org/d3.v7.min.js)
-          target: assets
-          auto-match: true
+      - name: Download pyscript.css
+        run: curl https://pyscript.net/alpha/pyscript.css -o assets/pyscript.css
+        
+      - name: Download d3.v7.min.js
+        run: curl https://d3js.org/d3.v7.min.js -o assets/d3.v7.min.js
           
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4.0.4
         with:
-          commit-message: Update assets
-          title: Update assets
+          commit-message: Update 3rd party assets
+          title: Update 3rd party assets
           body: |
             This is an automated PR.
             <sub>[workflow](https://github.com/marvinscham/pa-pyscript/blob/master/.github/workflows/asset-updater.yml).</sub>
