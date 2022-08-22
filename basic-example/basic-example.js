@@ -6,10 +6,18 @@ fetch(url)
     .then((out) => {
         const langInfo = out.lang_data;
 
+        const langNames = new Map([
+            ["eo", "Esperanto"],
+            ["en", "Englisch"],
+            ["ru", "Russisch"],
+            ["ja", "Japanisch"],
+            ["es", "Spanisch"]
+        ]);
+
         let langInfoPrepped = [];
         Object.entries(langInfo).forEach((el) => {
             let item = {};
-            item["name"] = el[1].learningLanguage;
+            item["name"] = langNames.get(el[1].learningLanguage);
             item["count"] = el[1].xp;
 
             // Filter irrelevant items
