@@ -18,6 +18,7 @@ fetch(url)
         Object.entries(langInfo).forEach((el) => {
             let item = {};
             item["name"] = langNames.get(el[1].learningLanguage);
+            item["shortcode"] = el[1].learningLanguage;
             item["count"] = el[1].xp;
 
             // Filter irrelevant items
@@ -28,6 +29,8 @@ fetch(url)
 
         const fn = (d) => d.count;
         const data = d3.pie().value(fn)(langInfoPrepped);
+        const maxVal = d3.max(data, function (d) { return d.value; });
+        const colorScale = d3.scaleLinear().domain([0, maxVal]).range(["#fafafa", "rebeccapurple"]);
 
         const arc = d3
             .arc()
@@ -43,30 +46,29 @@ fetch(url)
         const svg = js
             .append("svg")
             .attr("viewBox", "-320 -320 640 640")
-            .attr("width", "400")
-            .attr("height", "400");
+            .attr("width", 400)
+            .attr("height", 400);
+
+        const imageSize = 42
 
         for (const d of data) {
-            svg.append("path").style("fill", "rebeccapurple").attr("d", arc(d));
+            const tooltip = d.data.name + "\n" + d.value + " XP"
+            svg.append("path").style("fill", colorScale(d.value)).attr("d", arc(d)).append("svg:title").text(tooltip);
 
-            const text = svg
-                .append("text")
-                .style("fill", "white")
+            const image = svg
+                .append("image")
+                .attr("xlink:href", "https://marvinscham.de/assets/img/lang/" + d.data.shortcode + ".png")
+                .attr("x", -1 * imageSize / 2)
+                .attr("y", -1 * imageSize / 2)
+                .attr("width", imageSize)
+                .attr("height", imageSize)
                 .attr("transform", `translate(${arc.centroid(d).join(",")})`)
-                .attr("text-anchor", "middle");
+                .attr("text-anchor", "middle")
 
-            text
-                .append("tspan")
-                .style("font-size", "24")
-                .attr("x", "0")
-                .text(d.data.name);
+            image
+                .append("svg:title")
+                .text(tooltip)
 
-            text
-                .append("tspan")
-                .style("font-size", "18")
-                .attr("x", "0")
-                .attr("dy", "1.3em")
-                .text(d.value);
         }
     })
     .catch((err) => console.log(err));
