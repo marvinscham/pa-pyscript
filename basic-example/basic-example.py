@@ -1,7 +1,6 @@
 from pyodide import create_proxy, to_js, open_url
 import d3
 import json
-import js
 
 url = f"https://duolingo.checksch.de/duo_user_info.json"
 res = open_url(url)
@@ -31,7 +30,6 @@ fn = create_proxy(lambda d, *_: d["count"])
 data = d3.pie().value(fn)(to_js(lang_info_prepped))
 max_val = max(lang_info_prepped, key=lambda d: d["count"])["count"]
 color_scale = d3.scaleLinear().domain([0, max_val]).range(["#fafafa", "rebeccapurple"])
-js.console.log(to_js(max_val))
 
 arc = (
     d3.arc()
