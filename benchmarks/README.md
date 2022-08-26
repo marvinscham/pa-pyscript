@@ -1,19 +1,15 @@
 # Benchmarks
 
-## Konfiguration
+## Systemumgebung
 
-_Angelehnt an Pierre Quentels [Brython Benchmarking 2015](https://brythonista.wordpress.com/2015/03/28/comparing-the-speed-of-cpython-brython-skulpt-and-pypy-js/)_
-
-**Hinweis:** Pierre Quentel ist der Ersteller von Brython (→ Bias möglich)
+### OS/Browser
 
 - Windows 10 64-bit
 - Firefox 104.0 64-bit
-- Neuste Version des jeweiligen Frameworks
-- 5 Läufe pro Framework
-- Neustart und Leerung jeglicher Caches nach jedem Lauf
-- Geometrisches Mittel der 5 Versuche
 
-## Ergebnisse
+### Browser-Python Projekte
+
+_Neuste Version des jeweiligen Frameworks:_
 
 - CPython 3.10.6
 - [Skulpt 1.3.0 @ Python 2.6(ish)](https://skulpt.org/)
@@ -21,6 +17,20 @@ _Angelehnt an Pierre Quentels [Brython Benchmarking 2015](https://brythonista.wo
 - [PyPy.js v0.4.0 @ Python 2.7.9](https://pypyjs.org/)
 - [Pyodide 0.21.1 @ Python 3.10.2](https://pyodide.org/en/stable/console.html)
 - [PyScript 2022.06.1 @ Python 3.10.2](https://pyscript.net/examples/repl.html)
+
+## Ausführungsgeschwindigkeit
+
+### Konfiguration
+
+_Angelehnt an Pierre Quentels [Brython Benchmarking 2015](https://brythonista.wordpress.com/2015/03/28/comparing-the-speed-of-cpython-brython-skulpt-and-pypy-js/)_
+
+**Hinweis:** Pierre Quentel ist der Ersteller von Brython (→ Bias möglich)
+
+- 5 Läufe pro Framework
+- Neustart und Leerung jeglicher Caches nach jedem Lauf
+- Geometrisches Mittel der 5 Versuche
+
+### Ergebnisse
 
 _Alle Messergebnisse inkl. Berechnung sind in `Benchmarks.xlsx` zu finden._
 
@@ -58,3 +68,31 @@ str_of_int.py          24.0     5.7     8.2     4.5      4.5
 create_function.py     25.1    18.0    13.3     4.6      4.2
 function_call.py       20.2    11.9    11.9     3.9      3.3
 ```
+
+**Notiz:** nach Quentels Angaben konnte Brython zum Zeitpunkt der Erstellung seiner eigenen Messung Ergebnisse erzielen, bei denen Brython bei manchen Tests _schneller_ als CPython war. Dies konnte an dieser Stelle auch in anderen Browsern nicht repliziert werden und scheint [kein Einzelfall](https://github.com/QQuick/Transcrypt/issues/661#issuecomment-539999058) zu sein.
+
+## Downloadgröße / "Gewicht"
+
+### Konfiguration
+
+Es handelt sich bei den Größenangaben nicht um die vollständige, entpackte Größe, sondern um den verursachten Traffic, den das Endgerät des Nutzers tatsächlich stemmen muss.
+
+Serverseitige Kompression (z.B. gzip) und Asset-Minification sind also bei den gemessenen Größen bereits einbezogen.
+
+### Ergebnisse
+
+- Skulpt
+  - 128 kB Interpreter
+  - 89 kB Standardbibliothek
+- Brython
+  - 201 kB Interpreter
+  - 1 MB Standardbibliothek
+- PyPy.js
+  - 4.3 MB
+- Pyodide
+  - 7.6 MB
+  - Externe Bibliotheken
+- PyScript
+  - 8.3 MB
+  - Externe Bibliotheken
+  - Bespiellast mit Matplotlib: 25.3 MB
