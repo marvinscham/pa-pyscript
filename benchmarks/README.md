@@ -81,18 +81,11 @@ Serverseitige Kompression (z.B. gzip) und Asset-Minification sind also bei den g
 
 ### Ergebnisse
 
-- Skulpt
-  - 128 kB Interpreter
-  - 89 kB Standardbibliothek
-- Brython
-  - 201 kB Interpreter
-  - 1 MB Standardbibliothek
-- PyPy.js
-  - 4.3 MB
-- Pyodide
-  - 7.6 MB
-  - Externe Bibliotheken
-- PyScript
-  - 8.3 MB
-  - Externe Bibliotheken
-  - Bespiellast mit Matplotlib: 25.3 MB
+```text
+Skulpt       0.2MB
+Brython      1.2MB
+PyPy.js      4.3MB
+Pyodide      7.6MB + externe Pakete
+PyScript     8.3MB + externe Pakete
+PyScript*   25.3MB (mit Matplotlib)
+```
