@@ -28,7 +28,7 @@ _Angelehnt an Pierre Quentels [Brython Benchmarking 2015](https://brythonista.wo
 
 - 5 Läufe pro Framework
 - Neustart und Leerung jeglicher Caches nach jedem Lauf
-- Geometrisches Mittel der 5 Versuche
+- Geometrisches Mittel der 5 Läufe
 
 ### Ergebnisse
 
@@ -88,4 +88,21 @@ PyPy.js      4.3MB
 Pyodide      7.6MB + externe Pakete
 PyScript     8.3MB + externe Pakete
 PyScript*   25.3MB (mit Matplotlib)
+```
+
+## Nutzerfreundlichkeit
+
+### Konfiguration
+
+- Aufruf über [JS](https://checksch.de/pa-pyscript/basic-example/javascript.html)/[PY](https://checksch.de/pa-pyscript/basic-example/pyscript.html).
+- Kein Caching
+- 5 Läufe
+
+### Ergebnisse
+
+```text
+             (MB)  (s)   (s)
+             Load Finish TTI
+JavaScript    0.2   1.17 0.8
+PyScript     12.9   8.57 9.6
 ```
