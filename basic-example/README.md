@@ -20,4 +20,6 @@ Der Kommentar `<!-- prettier-ignore -->` verhindert, dass mein verwendeter Forma
 
 - [PyScript](https://checksch.de/pa-pyscript/basic-example/pyscript.html)
 
+[→ Benchmarks](https://github.com/marvinscham/pa-pyscript/tree/main/benchmarks#nutzerfreundlichkeit)
+
 ![JS Demo](https://raw.githubusercontent.com/marvinscham/pa-pyscript/main/basic-example/basic-example.png)
