@@ -17,8 +17,12 @@ def style(x):
 
 geo_json = json.loads(open_url("./plz-2stellig.geojson").read())
 m = folium.Map(location=[50.4, 9.6], zoom_start=6)
-folium.GeoJson(geo_json, name="Postleitzahl", style_function=lambda x: style(x)).add_to(
-    m
-)
+folium.GeoJson(
+    geo_json, 
+    name="Postleitzahl", 
+    style_function=lambda x: style(x), 
+    tooltip=folium.features.GeoJsonTooltip(fields=['plz'], aliases=["Postleitzahl"]),
+    ).add_to(m)
+folium.LayerControl().add_to(m)
 
 m
