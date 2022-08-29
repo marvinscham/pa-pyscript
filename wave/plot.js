@@ -18,7 +18,22 @@ const chart = new Chart("chart", {
 })
 
 function update(x, y) {
-    chart.data.labels = x
-    chart.data.datasets[0].data = y
-    chart.update()
+    chart.data.labels = x;
+    chart.data.datasets[0].data = y;
+    chart.update();
+}
+
+function checkScrollDirection(event) {
+    if (checkScrollDirectionIsUp(event)) {
+        document.querySelector("#freq").value = parseFloat(document.querySelector("#freq").value) + parseFloat(0.1);
+    } else {
+        document.querySelector("#freq").value -= parseFloat(0.1);
+    }
+}
+
+function checkScrollDirectionIsUp(event) {
+    if (event.wheelDelta) {
+        return event.wheelDelta > 0;
+    }
+    return event.deltaY < 0;
 }

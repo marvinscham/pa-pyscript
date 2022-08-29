@@ -12,9 +12,14 @@ def beat(freq1, freq2, time):
     return deflection(freq1, time) + deflection(freq2, time)
 
 
-def freq_update(event):
+def inp_update(event):
     document.querySelector("#freqlabel").innerText = freq2.value
     plot()
+
+
+def scroll_update(event):
+    js.checkScrollDirection(event)
+    inp_update(event)
 
 
 def plot():
@@ -25,8 +30,8 @@ def plot():
 freq1 = 440
 freq2 = document.querySelector("#freq")
 
-proxy = create_proxy(freq_update)
-freq2.addEventListener("input", proxy)
+freq2.addEventListener("input", create_proxy(inp_update))
+document.body.addEventListener("wheel", create_proxy(scroll_update))
 
 sampling_frequency = 1920 / 10 * 4
 seconds = 2
