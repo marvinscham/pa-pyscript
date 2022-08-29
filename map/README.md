@@ -4,3 +4,5 @@ Stellt mittels [Folium](http://python-visualization.github.io/folium/) die Regio
 
 - [Aufrufbare Instanz](https://checksch.de/pa-pyscript/map/map.html)
 - [Datenquelle](https://www.suche-postleitzahl.org/downloads)
+
+![img](https://raw.githubusercontent.com/marvinscham/pa-pyscript/main/map/map.png)

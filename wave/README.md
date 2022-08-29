@@ -9,3 +9,5 @@ _Als Schwebung bezeichnet man den Effekt, dass die Resultierende der additiven √
 Mittels NumPy werden die Daten f√ºr eine interaktive Demonstration von Schwebung bereitgestellt und mit Chart.js visualisiert.
 
 [Aufrufbare Instanz](https://checksch.de/pa-pyscript/wave/wave.html)
+
+![img](https://raw.githubusercontent.com/marvinscham/pa-pyscript/main/wave/wave.png)
