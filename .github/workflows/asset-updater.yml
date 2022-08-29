@@ -23,6 +23,9 @@ jobs:
         
       - name: Download d3.v7.min.js
         run: curl https://d3js.org/d3.v7.min.js -o assets/d3.v7.min.js
+        
+      - name: Download chart.js
+        run: curl https://cdn.jsdelivr.net/npm/chart.js
           
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4.0.4
