@@ -18,7 +18,7 @@ Projektarbeit RWU: Python im Browser mit PyScript
 
   - [Beispielcode zum Copypasten](https://raw.githubusercontent.com/marvinscham/pa-pyscript/main/repl/matplotlib-example.py)
 
-![REPL](https://raw.githubusercontent.com/marvinscham/pa-pyscript/main/wave/wave.png)
+![REPL](https://raw.githubusercontent.com/marvinscham/pa-pyscript/main/repl/repl.png)
 
 - [PLZ-Karte Deutschland](https://checksch.de/pa-pyscript/map/map.html) (_Achtung, lädt lang_)
 
