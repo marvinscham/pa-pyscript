@@ -27,7 +27,7 @@ fetch(url)
             }
         });
 
-        const fn = (d) => d.count;
+        const fn = d => d.count;
         const data = d3.pie().value(fn)(langInfoPrepped);
         const maxVal = d3.max(langInfoPrepped, fn);
         const colorScale = d3.scaleLinear().domain([0, maxVal]).range(["azure", "teal"]);
