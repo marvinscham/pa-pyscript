@@ -1,0 +1,8 @@
+body {
+  padding: 1em;
+}
+canvas {
+  background-color: azure;
+  max-width: 1920px;
+  max-height: 800px;
+}
