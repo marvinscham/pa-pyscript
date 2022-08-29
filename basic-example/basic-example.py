@@ -28,7 +28,7 @@ for lang in lang_info:
 
 fn = create_proxy(lambda d, *_: d["count"])
 data = d3.pie().value(fn)(to_js(lang_info_prepped))
-max_val = max(lang_info_prepped, key=lambda d: d["count"])["count"]
+max_val = d3.max(to_js(lang_info_prepped), fn)
 color_scale = d3.scaleLinear().domain([0, max_val]).range(["azure", "teal"])
 
 arc = (
