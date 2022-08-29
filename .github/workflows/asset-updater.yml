@@ -1,4 +1,4 @@
-name: Auto PR 3rd party assets
+name: Update third party assets
 
 on:
   schedule: [{cron: "0 4 * * *"}]
@@ -25,7 +25,7 @@ jobs:
         run: curl https://d3js.org/d3.v7.min.js -o assets/d3.v7.min.js
         
       - name: Download chart.js
-        run: curl https://cdn.jsdelivr.net/npm/chart.js
+        run: curl https://cdn.jsdelivr.net/npm/chart.js -o assets/chart.js
           
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4.0.4
