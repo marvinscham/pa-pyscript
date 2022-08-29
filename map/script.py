@@ -1,17 +1,8 @@
-import pandas as pd
-import folium
-import json
-import random
 from pyodide.http import open_url
-
-data = "./data.json"
-geo_json = json.loads(open_url(data).read())
-
-m = folium.Map(location=[50.4, 9.6], zoom_start=6)
-
+import folium, json
 
 def style(x):
-    match (x["properties"]["plz"]):
+    match (x["properties"]["plz"][0]):
         case "0": return {"color": "yellow"}
         case "1": return {"color": "orange"}
         case "2": return {"color": "tomato"}
@@ -24,7 +15,8 @@ def style(x):
         case "9": return {"color": "slateblue"}
     return {"color": "black"}
 
-
+geo_json = json.loads(open_url("./plz-2stellig.geojson").read())
+m = folium.Map(location=[50.4, 9.6], zoom_start=6)
 folium.GeoJson(geo_json, name="Postleitzahl", style_function=lambda x: style(x)).add_to(
     m
 )
