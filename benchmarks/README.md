@@ -101,8 +101,10 @@ PyScript*   25.3MB (mit Matplotlib)
 ### Ergebnisse
 
 ```text
-             (MB)  (s)   (s)
-             Load Finish TTI
-JavaScript    0.2   1.17 0.8
-PyScript     12.9   8.57 9.6
+             (MB)  (s)    (s)
+             Load Finish  TTI
+JavaScript    0.2   1.17  0.8
+PyScript     12.9   8.57  9.6
+-----------------------------
+Faktor       64.5   7.32 12.0
 ```
