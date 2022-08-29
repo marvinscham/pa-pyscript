@@ -2,14 +2,24 @@
 
 Projektarbeit RWU: Python im Browser mit PyScript
 
-## Hinweise 2022-07-29
+## Aufrufbare Beispiele
 
-Die grundlegenden Beispiele müssen von einem Server aus abgerufen werden, um richtig zu funktionieren, das bloße Aufrufen der `html`-Dateien im Browser wird nicht funktionieren.
+- [Grundlegendes Beispiel](https://checksch.de/pa-pyscript/basic-example/javascript.html)
 
-Sie können hier abgerufen werden:
+  - D3/JavaScript
 
-- [D3/JavaScript](https://checksch.de/pa-pyscript/basic-example/javascript.html)
+- [Grundlegendes Beispiel](https://checksch.de/pa-pyscript/basic-example/pyscript.html)
 
-- [D3/PyScript](https://checksch.de/pa-pyscript/basic-example/pyscript.html)
+  - D3/PyScript
 
-Die Darstellung an sich soll später nochmal aufpoliert werden, um die Bedeutung der Daten klar zu machen. Bis jetzt stand für mich die Umsetzung eines laufenden Prototyps im Vordergrund.
+- [REPL mit Matplotlib](https://checksch.de/pa-pyscript/repl/repl.html)
+
+  - [Beispielcode zum Copypasten](https://raw.githubusercontent.com/marvinscham/pa-pyscript/main/repl/matplotlib-example.py)
+
+- [PLZ-Karte Deutschland](https://checksch.de/pa-pyscript/map/map.html)
+
+  - Folium
+
+- [Schwebung](https://checksch.de/pa-pyscript/wave/wave.html)
+
+  - NumPy/Chart.js
