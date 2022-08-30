@@ -8,7 +8,7 @@ Projektarbeit RWU: Python im Browser mit PyScript
 
 Lösung des Problems ist das Aufsetzen eines lokalen Servers, beispielsweise über [XAMPP](https://www.apachefriends.org/de/index.html) oder direkt per Python 3:
 
-```python
+```sh
 python -m http.server
 ```
 
