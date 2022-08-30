@@ -2,6 +2,18 @@
 
 Projektarbeit RWU: Python im Browser mit PyScript
 
+## Verwendung
+
+**Hinweis:** Das bloße Aufrufen der `html`-Dateien ist aufgrund von Sicherheitsbeschränkungen des Browsers beim `file`-Protokoll nicht ausreichend zur Ausführung von PyScript.
+
+Lösung des Problems ist das Aufsetzen eines lokalen Servers, beispielsweise über [XAMPP](https://www.apachefriends.org/de/index.html) oder direkt per Python 3:
+
+```python
+python -m http.server
+```
+
+Alternativ können auch die unten stehenden Links unter meiner Domain `checksch.de` verwendet werden, auf welche stündlich der aktuelle Stand des `main`-Branches gespielt wird.
+
 ## Aufrufbare Beispiele
 
 - [Grundlegendes Beispiel](https://checksch.de/pa-pyscript/basic-example/javascript.html)
