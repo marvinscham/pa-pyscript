@@ -1,5 +1,6 @@
 from pyodide.http import open_url
 import folium, json
+# import geopandas as gpd
 
 def style(x):
     match (x["properties"]["plz"][0]):
@@ -15,6 +16,7 @@ def style(x):
         case "9": return {"color": "slateblue"}
     return {"color": "black"}
 
+# geo_json = json.loads(gpd.read_file("./plz-1stellig.shp", dtype={"plz": str}).to_json())
 geo_json = json.loads(open_url("./plz-2stellig.geojson").read())
 m = folium.Map(location=[50.4, 9.6], zoom_start=6)
 folium.GeoJson(
