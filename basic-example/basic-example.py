@@ -40,11 +40,10 @@ arc = (
     .cornerRadius(8)
 )
 
-py = d3.select("#py")
-py.select(".loading").remove()
+canvas = d3.select("#canvas")
 
 svg = (
-    py.append("svg")
+    canvas.append("svg")
     .attr("viewBox", "-320 -320 640 640")
     .attr("width", 400)
     .attr("height", 400)

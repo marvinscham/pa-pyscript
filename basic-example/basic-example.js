@@ -40,10 +40,9 @@ fetch(url)
             .padAngle(2 / 300)
             .cornerRadius(8);
 
-        const js = d3.select("#js");
-        js.select(".loading").remove();
+        const canvas = d3.select("#canvas");
 
-        const svg = js
+        const svg = canvas
             .append("svg")
             .attr("viewBox", "-320 -320 640 640")
             .attr("width", 400)
