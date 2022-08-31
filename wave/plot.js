@@ -36,7 +36,9 @@ function update(x, y) {
 
 function checkScrollDirection(event) {
     if (checkScrollDirectionIsUp(event)) {
-        document.querySelector("#freq").value = parseFloat(document.querySelector("#freq").value) + parseFloat(0.1);
+        document.querySelector("#freq").value =
+            parseFloat(document.querySelector("#freq").value) +
+            parseFloat(0.1);
     } else {
         document.querySelector("#freq").value -= parseFloat(0.1);
     }
