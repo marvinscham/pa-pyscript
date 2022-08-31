@@ -34,5 +34,5 @@ jobs:
           title: Update 3rd party assets
           body: |
             This is an automated PR.
-            <sub>[workflow](https://github.com/marvinscham/pa-pyscript/blob/master/.github/workflows/asset-updater.yml).</sub>
+            <sub>[workflow](https://github.com/marvinscham/pa-pyscript/blob/main/.github/workflows/asset-updater.yml).</sub>
           branch: update-assets
