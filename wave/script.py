@@ -27,15 +27,14 @@ def plot():
     js.update(to_js(time), to_js(beat_deflection))
 
 
+sampling_frequency = 140
+seconds = 2
+time = np.linspace(0, seconds, int(seconds * sampling_frequency))
+
 freq1 = 440
 freq2 = document.querySelector("#freq")
 
 freq2.addEventListener("input", create_proxy(inp_update))
 document.body.addEventListener("wheel", create_proxy(scroll_update))
-
-sampling_frequency = 140
-seconds = 2
-time = np.linspace(0, seconds, int(seconds * sampling_frequency))
-
 
 plot()
