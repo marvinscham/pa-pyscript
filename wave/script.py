@@ -2,14 +2,14 @@ from pyodide import create_proxy, to_js
 import numpy as np
 import js
 
-# Auslenkung -> ω * t = 2πft
-def deflection(frequency, time):
-    return np.sin(2 * np.pi * frequency * time)
+# Kreisfrequenz -> ω = 2πf
+def angfreq(frequency):
+    return 2 * np.pi * frequency
 
 
-# Schwebung -> y(t) = y^(sin(2πft) + sin(2πft)); Annahme gleicher Amplitude (1), keine Phasenverschiebung
+# Schwebung -> y(t) = y^(sin(ωt) + sin(ωt))
 def beat(freq1, freq2, time):
-    return deflection(freq1, time) + deflection(freq2, time)
+    return np.sin(angfreq(freq1) * time) + np.sin(angfreq(freq2) * time)
 
 
 def inp_update(event):
