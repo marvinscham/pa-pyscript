@@ -2,8 +2,8 @@ from pyodide.http import open_url
 import folium, json
 # import geopandas as gpd
 
-def style(x):
-    match (x["properties"]["plz"][0]):
+def style(feature):
+    match (feature["properties"]["plz"][0]):
         case "0": return {"color": "yellow"}
         case "1": return {"color": "orange"}
         case "2": return {"color": "tomato"}
@@ -16,14 +16,23 @@ def style(x):
         case "9": return {"color": "slateblue"}
     return {"color": "black"}
 
-# geo_json = json.loads(gpd.read_file("./plz-1stellig.shp", dtype={"plz": str}).to_json())
+# geo_json = json.loads(gpd.read_file("./plz-2stellig.shp", dtype={"plz": str}).to_json())
 geo_json = json.loads(open_url("./plz-2stellig.geojson").read())
-m = folium.Map(height=937, width=1920, location=[51.16, 10.45], zoom_start=6)
+
+m = folium.Map(
+    height=937, 
+    width=1920, 
+    location=[51.16, 10.45], 
+    zoom_start=6
+)
+
 folium.GeoJson(
     geo_json, 
-    name="Postleitzahl", 
-    style_function=lambda x: style(x), 
-    tooltip=folium.features.GeoJsonTooltip(fields=['plz'], aliases=["Postleitzahl"]),
+    name="PLZ 2-stellig", 
+    style_function=style, 
+    tooltip=folium.features.GeoJsonTooltip(
+        fields=['plz'], 
+        aliases=["PLZ-Ziffern"]),
     ).add_to(m)
 folium.LayerControl().add_to(m)
 
