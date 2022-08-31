@@ -11,3 +11,6 @@ AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/json
 AddOutputFilterByType DEFLATE application/x-javascript
 </IfModule> 
+
+AddType text/plain .py
+AddType application/json .geojson
