@@ -5,12 +5,23 @@ const chart = new Chart("chart", {
             label: "Auslenkung",
             borderColor: "teal",
             backgroundColor: "teal",
+            tension: 0.5
         }
         ]
     },
     options: {
         scales: {
             x: {
+                display: false
+            }
+        },
+        elements: {
+            point: {
+                radius: 0
+            }
+        },
+        plugins: {
+            legend: {
                 display: false
             }
         }
